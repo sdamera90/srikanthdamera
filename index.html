@@ -111,7 +111,7 @@
         /* Hero Section */
         .hero {
             margin-top: 80px;
-            min-height: calc(100vh - 80px);
+            min-height: auto;
             display: flex;
             align-items: center;
             position: relative;
@@ -138,10 +138,10 @@
         .hero .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 3rem 2rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 3rem;
             align-items: center;
             animation: fadeIn 0.8s ease-out 0.2s both;
         }
@@ -158,7 +158,7 @@
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 300;
             line-height: 1.1;
             margin-bottom: 1rem;
@@ -171,14 +171,14 @@
             color: var(--accent);
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             display: block;
         }
 
         .hero-content p {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             color: var(--muted);
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             max-width: 540px;
         }
 
@@ -188,7 +188,7 @@
             color: var(--ink);
             border-left: 3px solid var(--accent);
             padding-left: 1.5rem;
-            margin: 2rem 0;
+            margin: 1.5rem 0;
         }
 
         .hero-image {
@@ -216,7 +216,7 @@
 
         /* Section Styles */
         section {
-            padding: 6rem 2rem;
+            padding: 4rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -224,7 +224,7 @@
         section h2 {
             font-size: 2.5rem;
             font-weight: 400;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             position: relative;
             display: inline-block;
         }
@@ -243,8 +243,8 @@
         .about-content {
             display: grid;
             grid-template-columns: 2fr 1fr;
-            gap: 4rem;
-            margin-top: 3rem;
+            gap: 3rem;
+            margin-top: 2rem;
         }
 
         .about-text p {
@@ -288,7 +288,7 @@
         /* Projects Section */
         #projects {
             background: #fafafa;
-            padding: 6rem 2rem;
+            padding: 4rem 2rem;
             margin: 0;
             max-width: 100%;
         }
@@ -302,7 +302,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
 
         .project-card {
@@ -366,7 +366,7 @@
         #contact {
             background: var(--ink);
             color: var(--paper);
-            padding: 6rem 2rem;
+            padding: 4rem 2rem;
             margin: 0;
             max-width: 100%;
         }
@@ -387,8 +387,8 @@
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-top: 3rem;
+            gap: 3rem;
+            margin-top: 2rem;
         }
 
         .contact-info p {
@@ -463,7 +463,7 @@
             }
 
             section {
-                padding: 4rem 1.5rem;
+                padding: 3rem 1.5rem;
             }
 
             section h2 {
@@ -502,8 +502,8 @@
             <div class="hero-content">
                 <span class="title">Physician Scientist</span>
                 <h1>Srikanth Damera</h1>
-                <p class="tagline">Understanding and Shaping Early Brain Development</p>
-                <p>I am pediatric physician scientist who uses neuroimaging to study critical periods of development in the fetal and infant brain. Through this understanding, I hope to design positive interventions to improve outcomes for children and families. </p>
+                <p class="tagline">Shaping Early Experience and Development</p>
+                <p>Pediatric physician scientist passionate about understanding how early experiences shape fetal and infant brain development.</p>
             </div>
             <div class="hero-image">
                 <img src="https://srdamera.com/wp-content/uploads/2020/05/sriimg.png" alt="Srikanth Damera">
@@ -569,7 +569,7 @@
                     <p>Feel free to reach out if you'd like to discuss research opportunities, collaborations, or have questions about my work.</p>
                     <div class="social-links">
                         <a href="https://twitter.com/SrikanthDamera8" target="_blank">Twitter</a>
-                        <a href="mailto:your.email@example.com">Email</a>
+                        <a href="/cdn-cgi/l/email-protection#027b6d77702c676f636b6e42677a636f726e672c616d6f">Email</a>
                     </div>
                 </div>
                 <div class="contact-info">
@@ -585,7 +585,7 @@
         <p>&copy; 2026 Srikanth Damera. All rights reserved.</p>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -617,11 +617,4 @@
 
             document.querySelectorAll('nav a').forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+                if (link.getAttribute('h
