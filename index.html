@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srikanth Damera | MD PhD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1a1a1a;
+            --paper: #fefefe;
+            --accent: #c84e4e;
+            --muted: #6b6b6b;
+            --border: #e0e0e0;
+            --serif: 'Crimson Pro', serif;
+            --mono: 'DM Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--serif);
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.7;
+            font-size: 18px;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(254, 254, 254, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-family: var(--mono);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: var(--ink);
+            text-decoration: none;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 70%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(200, 78, 78, 0.03) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(1deg); }
+            66% { transform: translate(-20px, 20px) rotate(-1deg); }
+        }
+
+        .hero .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            animation: fadeIn 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-content .title {
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+            max-width: 540px;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--ink);
+            border-left: 3px solid var(--accent);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeIn 0.8s ease-out 0.4s both;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: 2px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.08),
+                0 0 0 1px rgba(0, 0, 0, 0.04);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .hero-image img:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 30px 80px rgba(0, 0, 0, 0.12),
+                0 0 0 1px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .affiliations {
+            background: linear-gradient(135deg, #f8f8f8 0%, #fefefe 100%);
+            padding: 2rem;
+            border-radius: 2px;
+            border: 1px solid var(--border);
+        }
+
+        .affiliations h3 {
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .affiliations ul {
+            list-style: none;
+        }
+
+        .affiliations li {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .affiliations li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        /* Projects Section */
+        #projects {
+            background: #fafafa;
+            padding: 6rem 2rem;
+            margin: 0;
+            max-width: 100%;
+        }
+
+        #projects .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--ink);
+        }
+
+        .project-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Publications Section */
+        .pub-item {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pub-item:last-child {
+            border-bottom: none;
+        }
+
+        .pub-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .pub-meta {
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-authors {
+            font-size: 0.95rem;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: var(--ink);
+            color: var(--paper);
+            padding: 6rem 2rem;
+            margin: 0;
+            max-width: 100%;
+        }
+
+        #contact .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #contact h2 {
+            color: var(--paper);
+        }
+
+        #contact h2::after {
+            background: var(--accent);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 1.5rem;
+            color: var(--paper);
+            text-decoration: none;
+            font-family: var(--mono);
+            font-size: 0.9rem;
+            border: 1px solid rgba(254, 254, 254, 0.3);
+            padding: 0.75rem 1.5rem;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--ink);
+            color: var(--muted);
+            text-align: center;
+            padding: 2rem;
+            font-family: var(--mono);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-image img {
+                max-width: 100%;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">SD</a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="title">Physician Scientist</span>
+                <h1>Srikanth Damera</h1>
+                <p class="tagline">Shaping Early Experience and Development</p>
+                <p>Pediatric physician scientist passionate about understanding how early experiences shape fetal and infant brain development.</p>
+            </div>
+            <div class="hero-image">
+                <img src="https://srdamera.com/wp-content/uploads/2020/05/sriimg.png" alt="Srikanth Damera">
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>I am a pediatric physician scientist passionate about understanding how early experiences shape fetal and infant brain development. My research focuses on the critical periods of development and how environmental factors influence neurological outcomes in young patients.</p>
+                
+                <p>I currently train at Children's National as part of their Pediatric Research Track Residency and R38 research fellow. I conduct research at the Developing Brain Institute within the Center for Prenatal, Neonatal, and Maternal Health Research headed by Dr. Catherine Limperopoulos.</p>
+                
+                <p>I earned my MD/PhD degree at Georgetown University School of Medicine. My thesis work examined how sensory systems support language in adults under the mentorship of Dr. Maximilian Riesenhuber in the Laboratory for Computational Cognitive Neuroscience.</p>
+            </div>
+            <div class="affiliations">
+                <h3>Current Positions</h3>
+                <ul>
+                    <li><strong>Children's National Hospital</strong><br>Pediatric Research Track Resident</li>
+                    <li><strong>Developing Brain Institute</strong><br>R38 Research Fellow</li>
+                    <li><strong>Georgetown University</strong><br>MD/PhD Graduate</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Research Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Fetal Brain Development</h3>
+                    <p>Investigating the impact of prenatal environmental factors on brain development and neurological outcomes in high-risk populations.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Neonatal Neuroimaging</h3>
+                    <p>Advanced imaging techniques to understand structural and functional brain development in premature and term infants.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Sensory Systems & Language</h3>
+                    <p>Computational neuroscience approaches to understanding how sensory processing supports language acquisition and processing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications">
+        <h2>Publications</h2>
+        <div class="pub-item">
+            <h3>Recent Publications</h3>
+            <p class="pub-meta">For a complete list of publications, please visit my Google Scholar profile or contact me directly.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p>I'm always interested in collaborating on research related to pediatric neuroscience, early brain development, and computational approaches to understanding cognition.</p>
+                    <p>Feel free to reach out if you'd like to discuss research opportunities, collaborations, or have questions about my work.</p>
+                    <div class="social-links">
+                        <a href="https://twitter.com/SrikanthDamera8" target="_blank">Twitter</a>
+                        <a href="mailto:your.email@example.com">Email</a>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <p><strong>Children's National Hospital</strong><br>
+                    111 Michigan Avenue NW<br>
+                    Washington, DC 20010</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Srikanth Damera. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = target.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add active state to nav on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            const navHeight = document.querySelector('nav').offsetHeight;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - navHeight - 100;
+                if (window.pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
