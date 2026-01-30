@@ -108,9 +108,26 @@
             width: 100%;
         }
 
+        /* Hero Banner */
+        .hero-banner {
+            margin-top: 80px;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(to bottom, #fefefe 0%, #f8f8f8 100%);
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
         /* Hero Section */
         .hero {
-            margin-top: 80px;
+            margin-top: 0;
             min-height: auto;
             display: flex;
             align-items: center;
@@ -432,6 +449,10 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .hero-banner {
+                height: 200px;
+            }
+
             nav ul {
                 gap: 1.5rem;
                 font-size: 0.85rem;
@@ -497,13 +518,18 @@
         </div>
     </nav>
 
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+        <img src="hero.png" alt="Neural Development Research">
+    </div>
+
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <span class="title">Physician Scientist</span>
                 <h1>Srikanth Damera</h1>
-                <p class="tagline">Shaping Early Experience and Development</p>
-                <p>Pediatric physician scientist passionate about understanding how early experiences shape fetal and infant brain development.</p>
+                <p class="tagline">Understanding and Shaping Early Brain Development</p>
+                <p>I am pediatric physician scientist who uses neuroimaging to study critical periods of development in the fetal and infant brain. Through this understanding, I hope to design positive interventions to improve outcomes for children and families.</p>
             </div>
             <div class="hero-image">
                 <img src="https://srdamera.com/wp-content/uploads/2020/05/sriimg.png" alt="Srikanth Damera">
