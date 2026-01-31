@@ -218,8 +218,8 @@
           width: 100%;
           max-width: 450px;
           height: auto;
-          border-radius: 0;          /* important */
-          box-shadow: none;          /* important */
+          border-radius: 0;
+          box-shadow: none;
           background: transparent;
           filter: drop-shadow(0 10px 30px rgba(0,0,0,0.18));
           transition: transform 0.4s ease, filter 0.4s ease;
@@ -303,7 +303,7 @@
             margin-bottom: 0;
         }
 
-        /* Projects Section */
+        /* Projects Section - Enhanced with Flip Cards */
         #projects {
             background: #fafafa;
             padding: 4rem 2rem;
@@ -318,35 +318,119 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
             margin-top: 2rem;
         }
 
-        .project-card {
-            background: white;
-            padding: 2rem;
-            border: 1px solid var(--border);
-            border-radius: 2px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
+        .project-card-wrapper {
+            perspective: 1000px;
+            height: 420px;
         }
 
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+        .project-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .project-card-wrapper:hover .project-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .project-card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card-front {
+            z-index: 2;
+        }
+
+        .project-card-back {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, #f8f8f8 0%, white 100%);
+        }
+
+        .card-number {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
         }
 
         .project-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
+            font-size: 1.35rem;
+            margin-bottom: 1.5rem;
             color: var(--ink);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .project-card h4 {
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
         }
 
         .project-card p {
             color: var(--muted);
             font-size: 0.95rem;
-            line-height: 1.6;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        .flip-hint {
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: auto;
+            padding-top: 1.5rem;
+            display: block;
+            opacity: 0.6;
+        }
+
+        .paper-list {
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .paper-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .paper-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .paper-title {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+            color: var(--ink);
+        }
+
+        .paper-meta {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--muted);
         }
 
         /* Publications Section */
@@ -491,6 +575,16 @@
             section h2 {
                 font-size: 2rem;
             }
+
+            .project-card-wrapper {
+                height: auto;
+                min-height: 420px;
+            }
+
+            /* Disable flip on mobile, show front only */
+            .project-card-wrapper:hover .project-card-inner {
+                transform: none;
+            }
         }
 
         @media (max-width: 480px) {
@@ -548,23 +642,87 @@
 
     <section id="projects">
         <div class="container">
-            <h2>Research Projects</h2>
+            <h2>Research Program</h2>
+            <p style="max-width: 900px; margin: 2rem 0 3rem 0; font-size: 1.1rem; line-height: 1.8; color: var(--muted);">
+                My research focuses on how early-life physiology and experience shape the developing brain, and how we can detect—and ultimately prevent—neurodevelopmental disability before symptoms emerge. I address three interconnected questions:
+            </p>
             <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Congenital Heart Disease & Brain Development</h3>
-                    <p>Investigating how altered cardiovascular physiology in congenital heart disease affects fetal and infant brain development and long-term neurodevelopmental outcomes.</p>
+                <div class="project-card-wrapper">
+                    <div class="project-card-inner">
+                        <div class="project-card project-card-front">
+                            <div class="card-number">01</div>
+                            <h3>When does neurodevelopmental divergence begin?</h3>
+                            <p>I investigate identifiable windows when support could change trajectories by quantifying fetal subplate development during mid-gestation and relating early deviations to postnatal outcomes in infants with congenital heart disease.</p>
+                            <span class="flip-hint">Hover to view papers →</span>
+                        </div>
+                        <div class="project-card project-card-back">
+                            <div class="card-number">01</div>
+                            <h4>Representative Work</h4>
+                            <div class="paper-list">
+                                <div class="paper-item">
+                                    <div class="paper-title">Fetal Subplate Dysmaturation Predicts Early Motor Outcomes in Congenital Heart Disease</div>
+                                    <div class="paper-meta">Under review, 2026</div>
+                                </div>
+                            </div>
+                            <span class="flip-hint">← Hover to return</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3>Preterm Birth & Brain Organization</h3>
-                    <p>Examining how preterm birth influences the emergence of functional brain networks and cortical maturation in early infancy.</p>
+                
+                <div class="project-card-wrapper">
+                    <div class="project-card-inner">
+                        <div class="project-card project-card-front">
+                            <div class="card-number">02</div>
+                            <h3>Which early neuroimaging markers best predict atypical circuit formation?</h3>
+                            <p>I develop and validate quantitative neuroimaging markers—spanning fetal brain structure through neonatal functional organization—that serve as early indicators of cortical dysmaturation and altered network development.</p>
+                            <span class="flip-hint">Hover to view papers →</span>
+                        </div>
+                        <div class="project-card project-card-back">
+                            <div class="card-number">02</div>
+                            <h4>Representative Work</h4>
+                            <div class="paper-list">
+                                <div class="paper-item">
+                                    <div class="paper-title">Fetal Subplate Dysmaturation Predicts Atypical Neonatal Brain Network Organization in Congenital Heart Disease</div>
+                                    <div class="paper-meta">In preparation, 2026</div>
+                                </div>
+                                <div class="paper-item">
+                                    <div class="paper-title">Altered Brain State Dynamics Between Preterm and Term-Born Infants</div>
+                                    <div class="paper-meta">Imaging Neuroscience, 2024</div>
+                                </div>
+                                <div class="paper-item">
+                                    <div class="paper-title">Regional Homogeneity as a Marker of Sensory Cortex Dysmaturity in Preterm Infants</div>
+                                    <div class="paper-meta">iScience, 2024</div>
+                                </div>
+                            </div>
+                            <span class="flip-hint">← Hover to return</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3>Precision fMRI in Infants</h3>
-                    <p>Developing advanced neuroimaging approaches to characterize individual differences in infant brain function with high precision and reliability.</p>
-                </div>
-                <div class="project-card">
-                    <h3>Sensory Systems & Language</h3>
-                    <p>Computational neuroscience approaches to understanding how sensory processing supports language acquisition and processing.</p>
+                
+                <div class="project-card-wrapper">
+                    <div class="project-card-inner">
+                        <div class="project-card project-card-front">
+                            <div class="card-number">03</div>
+                            <h3>How do sensory systems organize during critical developmental windows?</h3>
+                            <p>I examine how sensory systems develop and interact to form higher-order cortical networks, integrating principles from adult sensory and language systems with fetal and neonatal neuroimaging to understand how early constraints shape emerging network organization.</p>
+                            <span class="flip-hint">Hover to view papers →</span>
+                        </div>
+                        <div class="project-card project-card-back">
+                            <div class="card-number">03</div>
+                            <h4>Representative Work</h4>
+                            <div class="paper-list">
+                                <div class="paper-item">
+                                    <div class="paper-title">Evidence for a Spoken Word Lexicon in the Auditory Ventral Stream</div>
+                                    <div class="paper-meta">Neurobiology of Language, 2023</div>
+                                </div>
+                                <div class="paper-item">
+                                    <div class="paper-title">Metamodal Coupling of Vibrotactile and Auditory Speech Processing Systems Through Matched Stimulus Representations</div>
+                                    <div class="paper-meta">Journal of Neuroscience, 2023</div>
+                                </div>
+                            </div>
+                            <span class="flip-hint">← Hover to return</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -615,7 +773,7 @@
                     <p>Feel free to reach out if you'd like to discuss research opportunities, collaborations, or have questions about my work.</p>
                     <div class="social-links">
                         <a href="https://twitter.com/SrikanthDamera8" target="_blank">Twitter</a>
-                        <a href="/cdn-cgi/l/email-protection#027b6d77702c676f636b6e42677a636f726e672c616d6f">Email</a>
+                        <a href="mailto:sdamera@childrensnational.org">Email</a>
                     </div>
                 </div>
                 <div class="contact-info">
@@ -631,7 +789,7 @@
         <p>&copy; 2026 Srikanth Damera. All rights reserved.</p>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -663,4 +821,11 @@
 
             document.querySelectorAll('nav a').forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('h
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
