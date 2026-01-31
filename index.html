@@ -257,6 +257,11 @@
             background: var(--accent);
         }
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
         /* About Section */
         .about-content {
             display: grid;
@@ -301,6 +306,27 @@
             border-bottom: none;
             padding-bottom: 0;
             margin-bottom: 0;
+        }
+
+        .cv-download {
+            margin-top: 1.5rem;
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .cv-download:hover {
+            background: #b03e3e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(200, 78, 78, 0.3);
         }
 
         /* Projects Section - Enhanced with Flip Cards */
@@ -433,35 +459,132 @@
             color: var(--muted);
         }
 
-        /* Publications Section */
-        .pub-item {
-            margin-bottom: 2.5rem;
-            padding-bottom: 2.5rem;
+        /* Published Works Section */
+        #published-works {
+            background: var(--paper);
+            padding: 4rem 2rem;
+        }
+
+        .works-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .works-intro {
+            max-width: 900px;
+            margin: 0 0 3rem 0;
+            font-size: 1.05rem;
+            color: var(--muted);
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .works-section h3 {
+            font-family: var(--mono);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .work-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
             border-bottom: 1px solid var(--border);
         }
 
-        .pub-item:last-child {
+        .work-item:last-child {
             border-bottom: none;
+            margin-bottom: 0;
         }
 
-        .pub-item h3 {
-            font-size: 1.2rem;
+        .work-title {
+            font-size: 1.05rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
             line-height: 1.4;
+            color: var(--ink);
         }
 
-        .pub-meta {
+        .work-meta {
             font-family: var(--mono);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--muted);
             margin-bottom: 0.5rem;
         }
 
-        .pub-authors {
-            font-size: 0.95rem;
+        .work-authors {
+            font-size: 0.9rem;
             color: var(--muted);
             font-style: italic;
+        }
+
+        .work-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #f0f0f0;
+            color: var(--muted);
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .work-status.published {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .work-status.in-press {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .work-status.in-prep {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .work-status.upcoming {
+            background: #fce4ec;
+            color: #c2185b;
+        }
+
+        .talk-type {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .scholar-link {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .scholar-link a {
+            color: var(--accent);
+            text-decoration: none;
+            font-family: var(--mono);
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+        }
+
+        .scholar-link a:hover {
+            color: #b03e3e;
+            text-decoration: underline;
         }
 
         /* Contact Section */
@@ -564,6 +687,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .works-grid {
+                grid-template-columns: 1fr;
+            }
+
             .contact-content {
                 grid-template-columns: 1fr;
             }
@@ -606,7 +733,8 @@
             <a href="#" class="logo">SD</a>
             <ul>
                 <li><a href="#about">About</a></li>
-                <li><a href="#projects">Research Program</a></li>
+                <li><a href="#projects">Research</a></li>
+                <li><a href="#published-works">Publications</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -618,23 +746,30 @@
     </div>
 
     <section id="about">
-        <h2>About</h2>
-        <div class="about-content">
-            <div class="about-text">
-            
-                <p>Fetal and infant brain development establish the foundation for lifelong brain function, making this period one of extraordinary potential and profound vulnerability. Subtle perturbations in prenatal physiology or early-life experience can alter developmental trajectories long before clinical symptoms emerge. My research seeks to identify early neural markers of atypical development, understand the mechanisms that drive divergence, and define windows when intervention can improve outcomes.</p>
+        <div class="container">
+            <h2>About</h2>
+            <div class="about-content">
+                <div class="about-text">
                 
-                <p>I study populations at increased risk of neurodevelopmental disability—including infants with congenital heart disease and those born preterm. My work examines how altered physiology and early exposures shape brain organization and influence later neurodevelopmental outcomes. My approach integrates advanced fetal and neonatal neuroimaging, quantitative modeling of brain network dynamics, and longitudinal clinical assessment.</p>
-                
-                <p>By characterizing normative developmental trajectories and identifying early markers of divergence, I aim to pinpoint critical windows when intervention can alter outcomes—moving from delayed diagnosis to proactive, personalized care. This work seeks to shift the paradigm from reaction to prevention, identifying children at risk before symptoms emerge, when the brain is most responsive to support. Ultimately, this research lays groundwork for tools that clinicians and families can use to promote healthier neurodevelopmental trajectories from the very beginning.</p>
-            </div>
-            <div class="affiliations">
-                <h3>Current and Past Positions</h3>
-                <ul>
-                    <li><strong>Developing Brain Institute</strong><br>R38 Research Fellow</li>
-                    <li><strong>Children's National Hospital</strong><br>Pediatric Resident - Integrated Research Pathway</li>
-                    <li><strong>Georgetown University</strong><br>MD/PhD Graduate</li>
-                </ul>
+                    <p>Fetal and infant brain development establish the foundation for lifelong brain function, making this period one of extraordinary potential and profound vulnerability. Subtle perturbations in prenatal physiology or early-life experience can alter developmental trajectories long before clinical symptoms emerge. My research seeks to identify early neural markers of atypical development, understand the mechanisms that drive divergence, and define windows when intervention can improve outcomes.</p>
+                    
+                    <p>I study populations at increased risk of neurodevelopmental disability—including infants with congenital heart disease and those born preterm. My work examines how altered physiology and early exposures shape brain organization and influence later neurodevelopmental outcomes. My approach integrates advanced fetal and neonatal neuroimaging, quantitative modeling of brain network dynamics, and longitudinal clinical assessment.</p>
+                    
+                    <p>By characterizing normative developmental trajectories and identifying early markers of divergence, I aim to pinpoint critical windows when intervention can alter outcomes—moving from delayed diagnosis to proactive, personalized care. This work seeks to shift the paradigm from reaction to prevention, identifying children at risk before symptoms emerge, when the brain is most responsive to support. Ultimately, this research lays groundwork for tools that clinicians and families can use to promote healthier neurodevelopmental trajectories from the very beginning.</p>
+                </div>
+                <div class="affiliations">
+                    <h3>Current Position</h3>
+                    <ul>
+                        <li><strong>R38 Research Fellow</strong><br>Developing Brain Institute<br><em>2024-2026</em></li>
+                        <li><strong>Pediatric Resident</strong><br>Children's National Hospital<br>Integrated Research Pathway<br><em>2023-present</em></li>
+                    </ul>
+                    <h3 style="margin-top: 2rem;">Education</h3>
+                    <ul>
+                        <li><strong>MD/PhD</strong><br>Georgetown University<br><em>2014-2023</em></li>
+                        <li><strong>B.S. Applied Mathematics</strong><br>Columbia University<br><em>2008-2012</em></li>
+                    </ul>
+                    <a href="CV_SDamera.pdf" class="cv-download" download>Download CV</a>
+                </div>
             </div>
         </div>
     </section>
@@ -660,7 +795,7 @@
                             <div class="paper-list">
                                 <div class="paper-item">
                                     <div class="paper-title">Fetal Subplate Dysmaturation Predicts Early Motor Outcomes in Congenital Heart Disease</div>
-                                    <div class="paper-meta">Under review, 2026</div>
+                                    <div class="paper-meta">In preparation, 2025</div>
                                 </div>
                             </div>
                             <span class="flip-hint">← Hover to return</span>
@@ -681,12 +816,8 @@
                             <h4>Representative Work</h4>
                             <div class="paper-list">
                                 <div class="paper-item">
-                                    <div class="paper-title">Fetal Subplate Dysmaturation Predicts Atypical Neonatal Brain Network Organization in Congenital Heart Disease</div>
-                                    <div class="paper-meta">In preparation, 2026</div>
-                                </div>
-                                <div class="paper-item">
                                     <div class="paper-title">Altered Brain State Dynamics Between Preterm and Term-Born Infants</div>
-                                    <div class="paper-meta">Imaging Neuroscience, 2024</div>
+                                    <div class="paper-meta">Imaging Neuroscience, 2025</div>
                                 </div>
                                 <div class="paper-item">
                                     <div class="paper-title">Regional Homogeneity as a Marker of Sensory Cortex Dysmaturity in Preterm Infants</div>
@@ -724,8 +855,104 @@
                     </div>
                 </div>
             </div>
-            <p class="pub-meta" style="margin-top: 2rem; font-style: italic;">For a complete list of publications, please visit my <a href="https://scholar.google.com/citations?user=kYoOYCgAAAAJ&hl=en" target="_blank" style="color: var(--accent); text-decoration: underline;">Google Scholar profile</a>.</p>
+        </div>
+    </section>
 
+    <section id="published-works">
+        <div class="works-container">
+            <h2>Published Works & Presentations</h2>
+            <p class="works-intro">Recent publications and conference presentations (2023-present) highlighting advances in understanding fetal and infant brain development.</p>
+            
+            <div class="works-grid">
+                <!-- Publications Column -->
+                <div class="works-section">
+                    <h3>Recent Publications</h3>
+                    
+                    <div class="work-item">
+                        <span class="work-status in-prep">In Preparation</span>
+                        <div class="work-title">Fetal Subplate Dysmaturation Predicts Early Motor Outcomes in Congenital Heart Disease</div>
+                        <div class="work-meta">2025</div>
+                        <div class="work-authors">Damera SR, et al.</div>
+                    </div>
+
+                    <div class="work-item">
+                        <span class="work-status in-press">Under Review</span>
+                        <div class="work-title">Evidence for Hierarchical Representations of Written and Spoken Words from an Open-Science Human Neuroimaging Dataset</div>
+                        <div class="work-meta">2025</div>
+                        <div class="work-authors">Banerjee S, Chang L, Damera SR, et al.</div>
+                    </div>
+                    
+                    <div class="work-item">
+                        <span class="work-status published">Published</span>
+                        <div class="work-title">Altered Brain State Dynamics Between Preterm and Term-Born Infants</div>
+                        <div class="work-meta">Imaging Neuroscience • 2025</div>
+                        <div class="work-authors">Damera SR, et al.</div>
+                    </div>
+                    
+                    <div class="work-item">
+                        <span class="work-status published">Published</span>
+                        <div class="work-title">Regional Homogeneity as a Marker of Sensory Cortex Dysmaturity in Preterm Infants</div>
+                        <div class="work-meta">iScience • 2024 • <a href="https://doi.org/10.1016/j.isci.2024.109662" target="_blank" style="color: var(--accent);">DOI</a></div>
+                        <div class="work-authors">Damera SR, et al.</div>
+                    </div>
+                    
+                    <div class="work-item">
+                        <span class="work-status published">Published</span>
+                        <div class="work-title">Evidence for a Spoken Word Lexicon in the Auditory Ventral Stream</div>
+                        <div class="work-meta">Neurobiology of Language • 2023 • <a href="https://doi.org/10.1162/nol_a_00108" target="_blank" style="color: var(--accent);">DOI</a></div>
+                        <div class="work-authors">Damera SR, et al.</div>
+                    </div>
+                    
+                    <div class="work-item">
+                        <span class="work-status published">Published</span>
+                        <div class="work-title">Metamodal Coupling of Vibrotactile and Auditory Speech Processing Systems Through Matched Stimulus Representations</div>
+                        <div class="work-meta">Journal of Neuroscience • 2023 • <a href="https://doi.org/10.1523/JNEUROSCI.1710-22.2023" target="_blank" style="color: var(--accent);">DOI</a></div>
+                        <div class="work-authors">Damera SR, et al.</div>
+                    </div>
+                </div>
+
+                <!-- Presentations Column -->
+                <div class="works-section">
+                    <h3>Selected Presentations</h3>
+                    
+                    <div class="work-item">
+                        <span class="work-status upcoming">Upcoming</span>
+                        <div class="work-title">Fetal Subplate Dysmaturation Predicts Early Motor Outcomes in Congenital Heart Disease</div>
+                        <div class="work-meta"><span class="talk-type">Oral Presentation</span> • Pediatric Academic Societies • 2026</div>
+                        <div class="work-authors">Damera SR, et al.</div>
+                    </div>
+
+                    <div class="work-item">
+                        <span class="work-status upcoming">Upcoming</span>
+                        <div class="work-title">Fetal Brain Shape Predicts Gestational Age and Early Dysmaturation in Congenital Heart Disease</div>
+                        <div class="work-meta"><span class="talk-type">Poster</span> • Pediatric Academic Societies • 2026</div>
+                        <div class="work-authors">Damera SR, et al.</div>
+                    </div>
+
+                    <div class="work-item">
+                        <div class="work-title">Tensor-Based Morphometry Identifies Impaired Growth of Novel Brain Areas in Fetuses with Congenital Heart Disease</div>
+                        <div class="work-meta"><span class="talk-type">Poster</span> • Pediatric Academic Societies • 2025</div>
+                        <div class="work-authors">Damera SR, et al.</div>
+                    </div>
+
+                    <div class="work-item">
+                        <div class="work-title">Regional Homogeneity Tracks Sensory Cortex Dysmaturity and Predicts Future Risk of Autism in Preterm Infants</div>
+                        <div class="work-meta"><span class="talk-type">Poster</span> • Children's National Research Week • 2024</div>
+                        <div class="work-authors">Damera SR, et al.</div>
+                    </div>
+                    
+                    <div class="work-item">
+                        <div class="work-title">Regional Homogeneity as a Marker of Sensory Cortex Dysmaturity in Premature Infants</div>
+                        <div class="work-meta"><span class="talk-type">Oral Presentation</span> • Pediatric Academic Societies • 2023</div>
+                        <div class="work-authors">Damera SR, et al.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scholar-link">
+                <p style="color: var(--muted); margin-bottom: 0.5rem;">For a complete list of publications and citation metrics:</p>
+                <a href="https://scholar.google.com/citations?user=kYoOYCgAAAAJ&hl=en" target="_blank">View Google Scholar Profile →</a>
+            </div>
         </div>
     </section>
 
@@ -738,7 +965,7 @@
                     <p>Feel free to reach out if you'd like to discuss research opportunities, collaborations, or have questions about my work.</p>
                     <div class="social-links">
                         <a href="https://twitter.com/SrikanthDamera8" target="_blank">Twitter</a>
-                        <a href="mailto:sdamera@childrensnational.org">Email</a>
+                        <a href="mailto:sdamera@cnmc.org">Email</a>
                     </div>
                 </div>
                 <div class="contact-info">
