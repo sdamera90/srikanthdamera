@@ -935,24 +935,25 @@
                         <div class="work-meta"><span class="talk-type">Poster</span> • Pediatric Academic Societies • 2026</div>
                         <div class="work-authors">Damera SR, et al.</div>
                     </div>
-
-                    <div class="work-item">
-                        <div class="work-title">Tensor-Based Morphometry Identifies Impaired Growth of Novel Brain Areas in Fetuses with Congenital Heart Disease</div>
-                        <div class="work-meta"><span class="talk-type">Poster</span> • Pediatric Academic Societies • 2025</div>
-                        <div class="work-authors">Damera SR, et al.</div>
-                    </div>
-
-                    <div class="work-item">
-                        <div class="work-title">Regional Homogeneity Tracks Sensory Cortex Dysmaturity and Predicts Future Risk of Autism in Preterm Infants</div>
-                        <div class="work-meta"><span class="talk-type">Poster</span> • Children's National Research Week • 2024</div>
-                        <div class="work-authors">Damera SR, et al.</div>
-                    </div>
                     
                     <div class="work-item">
                         <div class="work-title">Regional Homogeneity as a Marker of Sensory Cortex Dysmaturity in Premature Infants</div>
                         <div class="work-meta"><span class="talk-type">Oral Presentation</span> • Pediatric Academic Societies • 2023</div>
                         <div class="work-authors">Damera SR, et al.</div>
                     </div>
+                    
+                    <div class="work-item">
+                        <div class="work-title">Experience-dependent metamodal coupling of vibrotactile and auditory speech processing systems through matched stimulus representations</div>
+                        <div class="work-meta"><span class="talk-type">Oral Presentation</span> • Neuroscience • 2022</div>
+                        <div class="work-authors">Riesenhuber, M. et al.</div>
+                    </div>
+
+                    <div class="work-item">
+                        <div class="work-title">Evidence for Multiple Fast Feedforward Hierarchies of Concept Processing in the Human Brain</div>
+                        <div class="work-meta"><span class="talk-type">Oral Presentation</span> • Society for the Neurobiology of Language • 2021</div>
+                        <div class="work-authors">Damera SR, et al.</div>
+                    </div>
+                    
                 </div>
             </div>
 
